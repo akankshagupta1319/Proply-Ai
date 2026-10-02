@@ -1,78 +1,163 @@
-# Mainline Next.js Template
+# Proply AI — Intelligence Behind Every Property
 
-Mainline is a free template built with shadcn/ui, Tailwind 4 and Next.js 15.
+Proply AI is a machine learning-powered house price prediction web application. It combines a modern web interface with a Python backend to help users estimate property prices based on selected property details.
 
-- [Demo](https://mainline-nextjs-template.vercel.app/)
-- [Documentation](https://docs.shadcnblocks.com/templates/getting-started)
-- [Figma](https://www.figma.com/design/cFCLMj7DFv0sK7EVsqKeTa/Mainline?node-id=23250-13201&t=I1nAdchDpknii5Bd-1)
+## Overview
 
-![Mainline NextJS Template screenshot](./public/og-image.jpg)
+Proply AI brings machine learning into property price estimation through an accessible, user-friendly experience. The project uses a trained Random Forest model to generate predictions from property inputs submitted through the web application.
+
+**Project tagline:** Intelligence Behind Every Property.
+
+## Features
+
+* **House Price Prediction:** Submit property details and receive a predicted price.
+* **Machine Learning Backend:** Uses a trained Random Forest model.
+* **Interactive Web Interface:** A responsive interface built for a smooth user experience.
+* **Prediction Results:** Displays the model's estimated property price.
+* **Frontend–Backend Integration:** Connects the Next.js application with a FastAPI backend.
+
+## Tech Stack
+
+### Frontend
+
+* Next.js 15
+* React 19
+* TypeScript
+* Tailwind CSS 4
+* shadcn/ui
+
+### Backend
+
+* Python
+* FastAPI
+* Uvicorn
+* Scikit-learn
+* Pandas
+
+### Machine Learning
+
+* Random Forest Regressor
+* Feature preprocessing
+* Pickle model files for loading the trained model and feature information
+
+## Project Structure
+
+```text
+Proply-Ai/
+├── backend/
+│   ├── main.py
+│   ├── model.pkl
+│   ├── feature_names.pkl
+│   ├── house_price_features.pkl
+│   └── house_price_random_forest.pkl
+├── public/
+├── src/
+│   ├── app/
+│   ├── components/
+│   ├── lib/
+│   └── styles/
+├── package.json
+├── README.md
+└── ...
+```
 
 ## Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+* Node.js and npm
+* Python 3
+* Git
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/akankshagupta1319/Proply-Ai.git
+cd Proply-Ai
+```
+
+### 2. Set Up the Frontend
+
+Install the dependencies:
 
 ```bash
 npm install
 ```
 
+Start the development server:
+
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser.
 
-## Features
+### 3. Run the Backend
 
-### Core Technology Stack
+Open a **second terminal** and navigate to the backend folder:
 
-- **Next.js 15** with App Router
-- **Tailwind CSS 4** for styling
-- **shadcn/ui** components
-- **TypeScript** support
-- **React 19**
+```bash
+cd backend
+```
 
-### Key Features
+Create and activate a virtual environment:
 
-- **Shadcn UI**: uses [shadcn/ui](https://ui.shadcn.com/) core UI components
-- **Theme System**: Dark/light mode with `next-themes`, compatible with [tweakcn](https://tweakcn.com)
-- **Form Handling**: React Hook Form + Zod validation
-- **Server Actions**: Next-safe-action integration for server-side logic
-- **MDX Support**: For content pages
-- **Animations**: Motion library (Framer Motion) integration
-- **ESLint/Prettier**: Pre-configured code formatting and linting
-- **Custom Fonts**: DM Sans font family included
-- **Icons**: Lucide React + React Icons libraries
-- **Styleglide Integration**: For component previews/development
-- **Responsive Design**: Mobile-friendly layout
-- **SEO Ready**: Proper metadata and OG images included
+```bash
+python -m venv venv
+```
 
-### Pre-built Pages
+On Windows PowerShell:
 
-- Home/Landing page
-- About page
-- Pricing page
-- FAQ page
-- Contact page with form
-- Login/Signup pages
+```powershell
+.\venv\Scripts\Activate
+```
 
-### Blocks
+Install the backend dependencies:
 
-- Hero section
-- Logo showcase/marquee
-- Features section
-- Resource allocation section
-- Testimonials with carousel
-- Pricing table
-- FAQ with accordion
-- Footer
-- Navigation bar
+```bash
+pip install fastapi uvicorn pandas scikit-learn
+```
 
-## Deployment
+Start the FastAPI server:
 
-Production-ready and tested for deployment on [Vercel](https://vercel.com)
+```bash
+uvicorn main:app --host 127.0.0.1 --port 8000 --reload
+```
 
-## Credits
+Open http://127.0.0.1:8000/docs to view the API documentation.
 
-- Template by [shadcnblocks.com](https://shadcnblocks.com)
-- Design by [Callum Flack](https://x.com/callumflack)
-- Dev by [Yassine Zaanouni](https://x.com/YassineZaanouni)
-- Produced by [Rob Austin](https://x.com/ausrobdev)
+> If your project has a `requirements.txt` file, use `pip install -r requirements.txt` instead of installing packages individually.
+
+## How It Works
+
+1. The user enters property details in the Proply AI web application.
+2. The frontend sends the input to the FastAPI backend.
+3. The backend prepares the input using the model's expected features.
+4. The trained Random Forest model generates a price prediction.
+5. The prediction is returned to the frontend and displayed to the user.
+
+## Machine Learning Model
+
+Proply AI uses a trained Random Forest model for house price prediction.
+
+The backend includes serialized model and feature files used to load the trained model and prepare input data for prediction.
+
+## Future Improvements
+
+* Add more property-related insights and visualizations.
+* Improve model performance through experimentation.
+* Add model evaluation metrics to the project documentation.
+* Deploy the frontend and backend for public access.
+* Expand the prediction experience with additional user-friendly features.
+
+## Acknowledgements
+
+The frontend was initially developed using the [Mainline Next.js Template](https://github.com/shadcnblocks/mainline-nextjs-template) by [shadcnblocks](https://shadcnblocks.com/).
+
+The original template documentation is available at [Shadcnblocks Documentation](https://docs.shadcnblocks.com/templates/getting-started).
+
+---
+
+**Proply AI — Intelligence Behind Every Property.**
